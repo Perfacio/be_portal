@@ -30,6 +30,13 @@ desired effect
 |---------------------------------------------------------|
 -->
 <body class="hold-transition skin-blue sidebar-mini">
+{% for item in menu_items %}
+{% if item.get_url %}
+{{ item.name }} - {{ item.get_url }}
+{% endif %}
+{% endfor %}
+
+
 <div class="wrapper">
 
   <!-- Main Header -->

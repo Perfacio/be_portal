@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'main',
     'blog',
     'user_profile',
+    'menu',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -70,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'menu.context_processors.main_menu_items',
             ],
         },
     },
