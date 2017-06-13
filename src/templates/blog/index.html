@@ -5,6 +5,7 @@
 {% endblock title %}
 
 {% block content %}
+
 <ul>
 {% for category in categories %}
     <li><a href="{% url "blog:index" %}?w={{ category.id }}">{{ category.name }}</a></li>
@@ -12,11 +13,22 @@
 {% endfor %}
 </ul>
 <hr>
-
 {% for post in posts %}
-    <h2><a href="{% url "blog:post_detail" post.id %}">{{ post.title }}</a> </h2>
-    <p>{{ post.description }}</p>
+    <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title"><a href="{% url "blog:post_detail" post.id %}">{{ post.title }}</a></h3>
+          <div class="box-tools pull-right">
+            <!-- Buttons, labels, and many other things can be placed here! -->
+            <!-- Here is a label for example -->
+            <span class="label label-primary">{{ post.category.name }}</span>
+          </div><!-- /.box-tools -->
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          {{ post.description }}
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
 {% endfor %}
+
 
 
 {% endblock content %}
