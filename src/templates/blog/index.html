@@ -6,13 +6,6 @@
 
 {% block content %}
 
-<ul>
-{% for category in categories %}
-    <li><a href="{% url "blog:index" %}?w={{ category.id }}">{{ category.name }}</a></li>
-
-{% endfor %}
-</ul>
-<hr>
 {% for post in posts %}
     <div class="box box-primary">
         <div class="box-header with-border">
@@ -33,3 +26,6 @@
 
 {% endblock content %}
 
+
+
+{# <a href="{% url "blog:index" %}?q={{ post.category.id }}"> #}

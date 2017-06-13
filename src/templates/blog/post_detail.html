@@ -3,8 +3,23 @@
 
 {% block content %}
 
-   <h2>{{ post.title }}</h2>
-    <p>{{ post.description }}</p>
-    <p><a href="{% url "blog:index" %}">Назад</a></p>
+   <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title"><a href="{% url "blog:post_detail" post.id %}">{{ post.title }}</a></h3>
+          <div class="box-tools pull-right">
+            <!-- Buttons, labels, and many other things can be placed here! -->
+            <!-- Here is a label for example -->
+            <span class="label label-primary">{{ post.category.name }}</span>
+          </div><!-- /.box-tools -->
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          {{ post.description }}
+        </div><!-- /.box-body -->
+    <div class="box-footer">
+    <a href="{% url "blog:index" %}">Назад</a>
+    </div>
+      </div><!-- /.box -->
+
+
 
 {% endblock content %}
