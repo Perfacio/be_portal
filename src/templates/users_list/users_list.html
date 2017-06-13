@@ -1,0 +1,38 @@
+{% extends 'master.html' %}
+
+{%  block title %} Справочник сотрудников {% endblock %}
+
+{% block page_title %} Справочник сотрудников {% endblock %}
+
+{% block content %}
+
+    <table>
+        <thead>
+        <tr>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Отдел</th>
+            <th>Электронная почта</th>
+            <th>Мобильный телефон</th>
+            <th>Внутренний телефон</th>
+            <th>Дата рождения</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.last_name }}</td>
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.profile.patronymic }}</td>
+            <td>{{ user.profile.department.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.profile.mobile_phone }}</td>
+            <td>{{ user.profile.work_phone }}</td>
+            <td>{{ user.profile.birthday|date:'d.m.Y' }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
