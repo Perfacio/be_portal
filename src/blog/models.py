@@ -30,6 +30,9 @@ class Post(models.Model):
     active = IsActiveManager()
 
 
+    class Meta:
+        ordering = ["-created_at"] #cортировка по дате создания в обратном порядке "-"
+
     def __str__(self):
         # return "{title} | {desc}".format(title=self.title, desc=self.description[:20])   #функция строкового представляния Python
         return self.title
