@@ -3,4 +3,8 @@ from .models import MainMenu
 
 
 
-admin.site.register(MainMenu)
+class MainMenuAdmin(admin.ModelAdmin):
+    list_display = ('name', 'url', 'position',)
+    list_editable = ('url', 'position',)
+
+admin.site.register(MainMenu, MainMenuAdmin)
