@@ -1,12 +1,23 @@
 {% extends 'master.html' %}
+{% load static %}
 
 {%  block title %} Справочник сотрудников {% endblock %}
+
+{% block extra_css %}
+{#    <link rel="stylesheet" href="{% static 'plugins/datatables/jquery.dataTables.min.css' %}">#}
+     <link rel="stylesheet" href="{% static 'plugins/datatables/dataTables.bootstrap.css' %}">
+{% endblock %}
 
 {% block page_title %} Справочник сотрудников {% endblock %}
 
 {% block content %}
 
-    <table>
+
+
+       <div class="box box-primary">
+        <div class="box-body">
+            <div class="table-responsive">
+            <table id="datatable" class="table table-bordered table-striped">
         <thead>
         <tr>
             <th>Фамилия</th>
@@ -34,5 +45,33 @@
         {% endfor %}
         </tbody>
     </table>
+            </div>
+
+        </div><!-- /.box-body -->
+    <div class="box-footer">
+    <a href="{% url "blog:index" %}">На главную</a>
+    </div>
+      </div><!-- /.box -->
 {% endblock %}
 
+
+
+{% block extra_javasctipt %}
+    <script src="{% static 'plugins/datatables/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'plugins/datatables/dataTables.bootstrap.min.js' %}"></script>
+<script>
+
+  $(function () {
+    $('#datatable').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+
+</script>
+
+{% endblock %}
