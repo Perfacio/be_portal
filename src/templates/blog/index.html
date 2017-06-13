@@ -1,0 +1,23 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Мой блог
+{% endblock title %}
+
+{% block content %}
+<ul>
+{% for category in categories %}
+    <li><a href="{% url "blog:index" %}?q={{ category.id }}">{{ category.name }}</a></li>
+
+{% endfor %}
+</ul>
+<hr>
+
+{% for post in posts %}
+    <h2><a href="{% url "blog:post_detail" post.id %}">{{ post.title }}</a> </h2>
+    <p>{{ post.description }}</p>
+{% endfor %}
+
+
+{% endblock content %}
+
