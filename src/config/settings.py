@@ -39,6 +39,7 @@ INSTALLED_APPS = ( #всегда подключаем новое приложе�
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_activeurl',
     'main',
     'blog',
     'user_profile',
