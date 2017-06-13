@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'blog',
     'user_profile',
     'menu',
+    'loginsys',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -116,4 +117,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
+LOGIN_URL = '/auth/login/'
 

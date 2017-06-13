@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from .models import Category, Post
 # Create your views here.
 
-
+@login_required
 def index_page(request):
     context = {
         'categories': Category.active.all(), #запрос к бд, получаем все активные категории
@@ -15,7 +16,7 @@ def index_page(request):
 
     return render(request, 'blog/index.html', context)
 
-
+@login_required
 def post_detail(request, id):
     context = {
         'post': get_object_or_404(Post, pk=id)
