@@ -1,0 +1,23 @@
+from django.shortcuts import render, get_object_or_404
+from .models import Category, Post
+# Create your views here.
+
+
+def index_page(request):
+    context = {
+        'posts': Post.objects.all(),
+        'categories': Category.objects.all(),
+    }
+    if request.GET.get("q"):
+        cat_id = request.GET.get("q")
+        context["posts"] = Post.objects.filter(category_id=cat_id)
+    return render(request, 'blog/index.html', context)
+
+
+def post_detail(request, id):
+    context = {
+        'post': get_object_or_404(Post, pk=id)
+
+    }
+    return render(request, 'blog/post_detail.html', context)
+
