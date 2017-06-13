@@ -5,12 +5,14 @@ from .models import Category, Post
 
 def index_page(request):
     context = {
-        'posts': Post.objects.all(),
-        'categories': Category.objects.all(),
+        'categories': Category.active.all(), #запрос к бд, получаем все активные категории
     }
-    if request.GET.get("q"):
-        cat_id = request.GET.get("q")
+    if request.GET.get("w"):
+        cat_id = request.GET.get("w") #GET - словарь, get - взятие словаря
         context["posts"] = Post.objects.filter(category_id=cat_id)
+    else:
+        context["posts"] = Post.active.all()
+
     return render(request, 'blog/index.html', context)
 
 
