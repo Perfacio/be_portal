@@ -20,5 +20,10 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('blog.urls', namespace='blog')),
     url(r'^users_list/', include('users_list.urls', namespace='users_list')),
+<<<<<<< HEAD
+    # url(r'^users_list/', include('users_list.urls', namespace='detail_list')),
+    ]
+=======
     url(r'^auth/', include('loginsys.urls', namespace='auth')),
 ]
+>>>>>>> 2f66056f259f9c453f71b2032ac031e77c22dd71
