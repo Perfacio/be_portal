@@ -11,7 +11,12 @@
           </div><!-- /.box-tools -->
         </div><!-- /.box-header -->
         <div class="box-body">
-Какая то информация которую я доделаю завтра)
+
+            <div>Отдел: {{ user.profile.department.name }}</div>
+            <div>Почта: {{ user.email }}</div>
+            <div>Мобильный телефон: {{ user.profile.mobile_phone }}</div>
+            <div>Рабочий телефон: {{ user.profile.work_phone }}</div>
+            <div>День рождения: {{ user.profile.birthday|date:'d.m.Y' }}</div>
         </div><!-- /.box-body -->
     <div class="box-footer">
     <a href="{% url "users_list:index" %}">Назад</a>

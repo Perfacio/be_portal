@@ -126,7 +126,7 @@
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
 
               <span class="hidden-xs">
-                  {{ user.username }}</span>
+                  {{ request.user.username }}</span>
               {% else %}
               <a href="{% url 'auth:login' %}" class="btn btn-success">Войти</a>
               {% endif %}
@@ -138,8 +138,8 @@
                 <img src="{% static 'img/user2-160x160.jpg' %}" class="img-circle" alt="User Image">
 
                 <p>
-                  {{ user.last_name }} {{ user.first_name }} - {{ user.profile.job }}
-                  <small>{{ user.profile.department.name }}</small>
+                  {{ request.user.last_name }} {{ request.user.first_name }} - {{ request.user.profile.job }}
+                  <small>{{ request.user.profile.department.name }}</small>
                 </p>
               </li>
               <!-- Menu Body -->
@@ -170,7 +170,7 @@
             {% endif %}
           </li>
           <!-- Control Sidebar Toggle Button -->
-          {% if user.is_authenticated %}
+          {% if request.user.is_authenticated %}
           <li>
             <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
           </li>
