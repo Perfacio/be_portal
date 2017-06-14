@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('blog.urls', namespace='blog')),
     url(r'^users_list/', include('users_list.urls', namespace='users_list')),
-]
+    # url(r'^users_list/', include('users_list.urls', namespace='detail_list')),
+    ]
