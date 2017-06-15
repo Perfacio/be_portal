@@ -74,6 +74,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'menu.context_processors.main_menu_items', #контекст процессор передает на все страницы сайта
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -110,6 +111,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+MEDIA_URL = '/media/'
+
 STATIC_URL = '/static/'
 
 #опции, окторые добавляем сами, для локльной разработки
@@ -117,6 +123,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
 
 LOGIN_URL = '/auth/login/'
 

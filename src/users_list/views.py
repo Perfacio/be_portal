@@ -16,3 +16,4 @@ class UserDetailView(DetailView):
     template_name = 'users_list/user_detail.html'
     model = User
     context_object_name = "user"
+    image = "image"

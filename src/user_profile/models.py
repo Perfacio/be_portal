@@ -17,6 +17,7 @@ class Profile(models.Model): #создать новую таблицу в бд
     birthday = models.DateField(blank=True) #blanck - необязательное для заполнения
     mobile_phone = models.CharField(max_length=12, verbose_name='Телефон')
     work_phone = models.CharField(max_length=10, verbose_name='Внутренний телефон', blank=True)
+    image = models.ImageField(upload_to="image_users/", verbose_name='Ваше фото', help_text='150x150px', blank=True)
     #TODO: добавить фотографию профиля
 
 # Create your models here.
